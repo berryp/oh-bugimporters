@@ -1,0 +1,15 @@
+*.pyc
+*.pyo
+*.swp
+*.patch
+.installed.cfg
+develop-eggs
+*.egg-info
+bugimporters/*.egg-info
+.coverage
+build
+*.orig
+*#
+.#*
+*~
+
