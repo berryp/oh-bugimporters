@@ -13,5 +13,6 @@ setup(
         'atom',
         'gdata',
         'lxml',
+        'unicodecsv',
     ],
 )

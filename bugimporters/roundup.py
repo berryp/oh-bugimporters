@@ -22,7 +22,10 @@ import lxml
 import re
 import urlparse
 
-from unicodecsv import UnicodeDictReader
+try:
+    from unicodecsv import DictReader
+except ImportError:
+    from unicodecsv import UnicodeDictReader as DictReader
 
 from bugimporters.helpers import cached_property
 from bugimporters.base import BugImporter
@@ -52,7 +55,7 @@ class RoundupBugImporter(BugImporter):
     def handle_query_csv(self, query_csv):
         # Turn the string into a list so csv.DictReader can handle it.
         query_csv_list = query_csv.split('\n')
-        dictreader = UnicodeDictReader(query_csv_list)
+        dictreader = DictReader(query_csv_list)
         self.bug_ids.extend([int(line['id']) for line in dictreader])
 
     def prepare_bug_urls(self):
