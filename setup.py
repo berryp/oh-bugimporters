@@ -13,6 +13,7 @@ setup(
         'atom',
         'gdata',
         'lxml',
+        'pyopenssl',
         'unicodecsv',
     ],
 )
