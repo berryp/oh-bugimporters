@@ -7,9 +7,10 @@ develop-eggs
 *.egg-info
 bugimporters/*.egg-info
 .coverage
+result.xml
 build
 *.orig
 *#
 .#*
 *~
-
+env/
