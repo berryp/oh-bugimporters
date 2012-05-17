@@ -1,9 +1,8 @@
 from datetime import datetime, timedelta
 import os
-import time
 import twisted
 
-from bugimporters.tests import (Bug, ReactorModel, TrackerModel,
+from bugimporters.tests import (Bug, ReactorManager, TrackerModel,
         FakeGetPage)
 from bugimporters.trac import TracBugImporter, TracBugParser
 from mock import Mock
@@ -41,7 +40,7 @@ class TestTracBugImporter(object):
 
     def setup_class(cls):
         cls.tm = TrackerModel()
-        cls.im = TracBugImporter(cls.tm, ReactorModel(),
+        cls.im = TracBugImporter(cls.tm, ReactorManager(),
                 data_transits=importer_data_transits)
         global all_bugs
         all_bugs = []
@@ -111,7 +110,6 @@ class TestTracBugImporter(object):
         all_bugs = []
 
         self.test_handle_bug_html_for_new_bug()
-        time.sleep(2)
         self.test_handle_bug_html_for_new_bug(second_run=True)
 
     def test_bug_that_404s_is_deleted(self, monkeypatch):

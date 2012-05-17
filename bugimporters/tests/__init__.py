@@ -4,6 +4,9 @@ from mock import Mock
 
 
 class TrackerModel(Mock):
+    """This is a Mock, rather than a regular object,
+    because oh-bugimporters calls some methods on the
+    object. Those method calls are not essential."""
 
     max_connections = 5
     tracker_name = 'Twisted',
@@ -25,7 +28,10 @@ class Bug(object):
             self.__setattr__(key, value)
 
 
-class ReactorModel(Mock):
+class ReactorManager(Mock):
+    """This is a Mock, rather than a pure object,
+    because the code calls some methods on this
+    object. We don't really care though."""
 
     running_deferreds = 0
 
