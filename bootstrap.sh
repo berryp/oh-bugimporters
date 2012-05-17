@@ -1,5 +1,6 @@
 #!/bin/sh
 
 virtualenv env
-env/bin/python setup.py develop
-env/bin/python setup.py test
+env/bin/pip install -e .
+env/bin/pip install -r devrequirements.txt
+env/bin/py.test

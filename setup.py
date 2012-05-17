@@ -2,22 +2,6 @@
 from setuptools import find_packages, Command
 
 
-class PyTest(Command):
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        import sys
-        import subprocess
-        errno = subprocess.call([sys.executable, 'runtest.py'])
-        raise SystemExit(errno)
-
-
 setup_params = dict(
     name='bugimporters',
     version=0.1,
@@ -25,7 +9,6 @@ setup_params = dict(
     author_email='all@openhatch.org, berryphillips@gmail.com',
     packages=find_packages(),
     description='Bug importers for the OpenHatch project',
-    cmdclass={'test': PyTest},
     install_requires=[
         'atom',
         'gdata',
@@ -36,7 +19,6 @@ setup_params = dict(
         'twisted',
         'python-dateutil',
         'decorator',
-        'mock',
     ],
 )
 
